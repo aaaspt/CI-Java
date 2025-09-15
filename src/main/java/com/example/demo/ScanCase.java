@@ -1,3 +1,5 @@
+package com.example.demo;
+
 public class ScanCase {
     protected void DoublePrecision(){
         double first = 0.1;
