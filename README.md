@@ -1,1 +1,61 @@
 # CI-Java
+
+Pom 
+<reporting>
+    	<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.6.0</version>
+				<configuration>
+					<!-- This uses Google's official Java Style Guide for the checks -->
+					<configLocation>google_checks.xml</configLocation>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.21.0</version>
+				<configuration>
+					<rulesets>
+						<ruleset>/rulesets/java/basic.xml</ruleset>
+						<ruleset>/rulesets/java/unusedcode.xml</ruleset>
+					</rulesets>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>pmd</report>
+							<report>cpd</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>4.9.4.2</version>
+				<configuration>
+					<xmlOutput>false</xmlOutput>
+					<effort>Max</effort>
+					<threshold>Low</threshold>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>spotbugs</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>		
+		</plugins>
+</reporting>
